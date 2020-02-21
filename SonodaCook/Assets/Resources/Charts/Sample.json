@@ -1,6 +1,6 @@
 {
   "title": "sample",
-  "bpm": "158.32",
+  "bpm": "158",
   "notes": [
     {"timing": "5000", "type": "don"},
     {"timing": "5250", "type": "ka"},
