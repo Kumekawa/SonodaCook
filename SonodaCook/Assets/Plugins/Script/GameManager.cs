@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 {
 
     [SerializeField] string FilePath;
+    [SerializeField] string ClipPath;
 
     [SerializeField] Button Play;
     [SerializeField] Button SetChart;
@@ -20,26 +21,49 @@ public class GameManager : MonoBehaviour
     [SerializeField] Transform SpawnPoint;
     [SerializeField] Transform BeatPoint;
 
-    //　ノーツを動かすために必要になる変数を追加
+    AudioSource Music;
+
     float PlayTime;
     float Distance;
     float During;
     bool isPlaying;
     int GoIndex;
 
+    float CheckRange;
+    float BeatRange;
+    List<float> NoteTimings;
+
     string Title;
     int BPM;
     List<GameObject> Notes;
 
+    Subject<string> SoundEffectSubject = new Subject<string>();
+
+    public IObservable<string> OnSoundEffect
+    {
+        get { return SoundEffectSubject; }
+    }
+
+    // イベントを通知するサブジェクトを追加
+    Subject<string> MessageEffectSubject = new Subject<string>();
+
+    // イベントを検知するオブザーバーを追加
+    public IObservable<string> OnMessageEffect
+    {
+        get { return MessageEffectSubject; }
+    }
+
     void OnEnable()
     {
-        // 追加した変数に値をセット
+        Music = this.GetComponent<AudioSource>();
+
         Distance = Math.Abs(BeatPoint.position.x - SpawnPoint.position.x);
         During = 2 * 1000;
         isPlaying = false;
         GoIndex = 0;
 
-        Debug.Log(Distance);
+        CheckRange = 120;
+        BeatRange = 80;
 
         Play.onClick
           .AsObservable()
@@ -49,7 +73,6 @@ public class GameManager : MonoBehaviour
           .AsObservable()
           .Subscribe(_ => loadChart());
 
-        // ノーツを発射するタイミングかチェックし、go関数を発火
         this.UpdateAsObservable()
           .Where(_ => isPlaying)
           .Where(_ => Notes.Count > GoIndex)
@@ -58,13 +81,31 @@ public class GameManager : MonoBehaviour
               Notes[GoIndex].GetComponent<NoteController>().go(Distance, During);
               GoIndex++;
           });
+
+        this.UpdateAsObservable()
+          .Where(_ => isPlaying)
+          .Where(_ => Input.GetKeyDown(KeyCode.D))
+          .Subscribe(_ => {
+              beat("don", Time.time * 1000 - PlayTime);
+              SoundEffectSubject.OnNext("don");
+          });
+
+        this.UpdateAsObservable()
+          .Where(_ => isPlaying)
+          .Where(_ => Input.GetKeyDown(KeyCode.K))
+          .Subscribe(_ => {
+              beat("ka", Time.time * 1000 - PlayTime);
+              SoundEffectSubject.OnNext("ka");
+          });
     }
 
     void loadChart()
     {
         Notes = new List<GameObject>();
+        NoteTimings = new List<float>();
 
         string jsonText = Resources.Load<TextAsset>(FilePath).ToString();
+        Music.clip = (AudioClip)Resources.Load(ClipPath);
 
         JsonNode json = JsonNode.Parse(jsonText);
         Title = json["title"].Get<string>();
@@ -89,18 +130,62 @@ public class GameManager : MonoBehaviour
                 Note = Instantiate(Don, SpawnPoint.position, Quaternion.identity); // default don
             }
 
-            // setParameter関数を発火
             Note.GetComponent<NoteController>().setParameter(type, timing);
 
             Notes.Add(Note);
+            NoteTimings.Add(timing);
         }
     }
 
-    // ゲーム開始時に追加した変数に値をセット
     void play()
     {
+        Music.Stop();
+        Music.Play();
         PlayTime = Time.time * 1000;
         isPlaying = true;
         Debug.Log("Game Start!");
+    }
+
+    void beat(string type, float timing)
+    {
+        float minDiff = -1;
+        int minDiffIndex = -1;
+
+        for (int i = 0; i < Notes.Count; i++)
+        {
+            if (NoteTimings[i] > 0)
+            {
+                float diff = Math.Abs(NoteTimings[i] - timing);
+                if (minDiff == -1 || minDiff > diff)
+                {
+                    minDiff = diff;
+                    minDiffIndex = i;
+                }
+            }
+        }
+
+        if (minDiff != -1 & minDiff < CheckRange)
+        {
+            if (minDiff < BeatRange & Notes[minDiffIndex].GetComponent<NoteController>().getType() == type)
+            {
+                NoteTimings[minDiffIndex] = -1;
+                Notes[minDiffIndex].SetActive(false);
+
+                MessageEffectSubject.OnNext("good"); // イベントを通知
+                Debug.Log("beat " + type + " success.");
+            }
+            else
+            {
+                NoteTimings[minDiffIndex] = -1;
+                Notes[minDiffIndex].SetActive(false);
+
+                MessageEffectSubject.OnNext("failure"); // イベントを通知
+                Debug.Log("beat " + type + " failure.");
+            }
+        }
+        else
+        {
+            Debug.Log("through");
+        }
     }
 }

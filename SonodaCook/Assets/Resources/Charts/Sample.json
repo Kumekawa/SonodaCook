@@ -1,16 +1,406 @@
 {
   "title": "sample",
-  "bpm": "158",
+  "bpm": "177",
   "notes": [
-    {"timing": "5000", "type": "don"},
-    {"timing": "5250", "type": "ka"},
-    {"timing": "5500", "type": "ka"},
-    {"timing": "6000", "type": "don"},
-    {"timing": "6250", "type": "don"},
-    {"timing": "6500", "type": "don"},
-    {"timing": "7000", "type": "don"},
-    {"timing": "7250", "type": "don"},
-    {"timing": "7500", "type": "don"},
-    {"timing": "7750", "type": "ka"}
+    {
+      "timing": "338.028169",
+      "type": "don"
+    },
+    {
+      "timing": "676.056338",
+      "type": "ka"
+    },
+    {
+      "timing": "1014.084507",
+      "type": "don"
+    },
+    {
+      "timing": "1352.112676",
+      "type": "ka"
+    },
+    {
+      "timing": "1690.140845",
+      "type": "don"
+    },
+    {
+      "timing": "2028.169014",
+      "type": "ka"
+    },
+    {
+      "timing": "2366.197183",
+      "type": "don"
+    },
+    {
+      "timing": "2704.225352",
+      "type": "ka"
+    },
+    {
+      "timing": "3042.253521",
+      "type": "don"
+    },
+    {
+      "timing": "3380.281690",
+      "type": "ka"
+    },
+    {
+      "timing": "3718.309859",
+      "type": "don"
+    },
+    {
+      "timing": "4056.338028",
+      "type": "ka"
+    },
+    {
+      "timing": "4394.366197",
+      "type": "don"
+    },
+    {
+      "timing": "4732.394366",
+      "type": "ka"
+    },
+    {
+      "timing": "5070.422535",
+      "type": "don"
+    },
+    {
+      "timing": "5408.450704",
+      "type": "ka"
+    },
+    {
+      "timing": "5746.478873",
+      "type": "don"
+    },
+    {
+      "timing": "6084.507042",
+      "type": "ka"
+    },
+    {
+      "timing": "6422.535211",
+      "type": "don"
+    },
+    {
+      "timing": "6760.563380",
+      "type": "ka"
+    },
+    {
+      "timing": "7098.591549",
+      "type": "don"
+    },
+    {
+      "timing": "7436.619718",
+      "type": "ka"
+    },
+    {
+      "timing": "7774.647887",
+      "type": "don"
+    },
+    {
+      "timing": "8112.676056",
+      "type": "ka"
+    },
+    {
+      "timing": "8450.704225",
+      "type": "don"
+    },
+    {
+      "timing": "8788.732394",
+      "type": "ka"
+    },
+    {
+      "timing": "9126.760563",
+      "type": "don"
+    },
+    {
+      "timing": "9464.788732",
+      "type": "ka"
+    },
+    {
+      "timing": "9802.816901",
+      "type": "don"
+    },
+    {
+      "timing": "10140.845070",
+      "type": "ka"
+    },
+    {
+      "timing": "10478.873239",
+      "type": "don"
+    },
+    {
+      "timing": "10816.901408",
+      "type": "ka"
+    },
+    {
+      "timing": "11154.929577",
+      "type": "don"
+    },
+    {
+      "timing": "11492.957746",
+      "type": "ka"
+    },
+    {
+      "timing": "11830.985915",
+      "type": "don"
+    },
+    {
+      "timing": "12169.014085",
+      "type": "ka"
+    },
+    {
+      "timing": "12507.042254",
+      "type": "don"
+    },
+    {
+      "timing": "12845.070423",
+      "type": "ka"
+    },
+    {
+      "timing": "13183.098592",
+      "type": "don"
+    },
+    {
+      "timing": "13521.126761",
+      "type": "ka"
+    },
+    {
+      "timing": "13859.154930",
+      "type": "don"
+    },
+    {
+      "timing": "14197.183099",
+      "type": "ka"
+    },
+    {
+      "timing": "14535.211268",
+      "type": "don"
+    },
+    {
+      "timing": "14873.239437",
+      "type": "ka"
+    },
+    {
+      "timing": "15211.267606",
+      "type": "don"
+    },
+    {
+      "timing": "15549.295775",
+      "type": "ka"
+    },
+    {
+      "timing": "15887.323944",
+      "type": "don"
+    },
+    {
+      "timing": "16225.352113",
+      "type": "ka"
+    },
+    {
+      "timing": "16563.380282",
+      "type": "don"
+    },
+    {
+      "timing": "16901.408451",
+      "type": "ka"
+    },
+    {
+      "timing": "17239.436620",
+      "type": "don"
+    },
+    {
+      "timing": "17577.464789",
+      "type": "ka"
+    },
+    {
+      "timing": "17915.492958",
+      "type": "don"
+    },
+    {
+      "timing": "18253.521127",
+      "type": "ka"
+    },
+    {
+      "timing": "18591.549296",
+      "type": "don"
+    },
+    {
+      "timing": "18929.577465",
+      "type": "ka"
+    },
+    {
+      "timing": "19267.605634",
+      "type": "don"
+    },
+    {
+      "timing": "19605.633803",
+      "type": "ka"
+    },
+    {
+      "timing": "19943.661972",
+      "type": "don"
+    },
+    {
+      "timing": "20281.690141",
+      "type": "ka"
+    },
+    {
+      "timing": "20619.718310",
+      "type": "don"
+    },
+    {
+      "timing": "20957.746479",
+      "type": "ka"
+    },
+    {
+      "timing": "21295.774648",
+      "type": "don"
+    },
+    {
+      "timing": "21633.802817",
+      "type": "ka"
+    },
+    {
+      "timing": "21971.830986",
+      "type": "don"
+    },
+    {
+      "timing": "22309.859155",
+      "type": "ka"
+    },
+    {
+      "timing": "22647.887324",
+      "type": "don"
+    },
+    {
+      "timing": "22985.915493",
+      "type": "ka"
+    },
+    {
+      "timing": "23323.943662",
+      "type": "don"
+    },
+    {
+      "timing": "23661.971831",
+      "type": "ka"
+    },
+    {
+      "timing": "24000.000000",
+      "type": "don"
+    },
+    {
+      "timing": "24338.028169",
+      "type": "ka"
+    },
+    {
+      "timing": "24676.056338",
+      "type": "don"
+    },
+    {
+      "timing": "25014.084507",
+      "type": "ka"
+    },
+    {
+      "timing": "25352.112676",
+      "type": "don"
+    },
+    {
+      "timing": "25690.140845",
+      "type": "ka"
+    },
+    {
+      "timing": "26028.169014",
+      "type": "don"
+    },
+    {
+      "timing": "26366.197183",
+      "type": "ka"
+    },
+    {
+      "timing": "26704.225352",
+      "type": "don"
+    },
+    {
+      "timing": "27042.253521",
+      "type": "ka"
+    },
+    {
+      "timing": "27380.281690",
+      "type": "don"
+    },
+    {
+      "timing": "27718.309859",
+      "type": "ka"
+    },
+    {
+      "timing": "28056.338028",
+      "type": "don"
+    },
+    {
+      "timing": "28394.366197",
+      "type": "ka"
+    },
+    {
+      "timing": "28732.394366",
+      "type": "don"
+    },
+    {
+      "timing": "29070.422535",
+      "type": "ka"
+    },
+    {
+      "timing": "29408.450704",
+      "type": "don"
+    },
+    {
+      "timing": "29746.478873",
+      "type": "ka"
+    },
+    {
+      "timing": "30084.507042",
+      "type": "don"
+    },
+    {
+      "timing": "30422.535211",
+      "type": "ka"
+    },
+    {
+      "timing": "30760.563380",
+      "type": "don"
+    },
+    {
+      "timing": "31098.591549",
+      "type": "ka"
+    },
+    {
+      "timing": "31436.619718",
+      "type": "don"
+    },
+    {
+      "timing": "31774.647887",
+      "type": "ka"
+    },
+    {
+      "timing": "32112.676056",
+      "type": "don"
+    },
+    {
+      "timing": "32450.704225",
+      "type": "ka"
+    },
+    {
+      "timing": "32788.732394",
+      "type": "don"
+    },
+    {
+      "timing": "33126.760563",
+      "type": "ka"
+    },
+    {
+      "timing": "33464.788732",
+      "type": "don"
+    },
+    {
+      "timing": "33802.816901",
+      "type": "ka"
+    }
   ]
 }
